@@ -1,4 +1,3 @@
-import React from 'react';
 import { Timer, Pause, Play } from 'lucide-react';
 
 interface TimerIconProps {
@@ -8,7 +7,7 @@ interface TimerIconProps {
 
 export function TimerIcon({ isRunning, time }: TimerIconProps) {
   return (
-    <div className="text-blue-400">
+    <div className="text-indigo-300">
       {isRunning ? (
         <Pause className="w-8 h-8 animate-pulse" />
       ) : time === 0 ? (
