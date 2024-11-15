@@ -1,11 +1,11 @@
 import { useState } from 'react';
-import { Trophy, Clock, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Trophy, Clock, ChevronLeft, ChevronRight, Trash2 } from 'lucide-react';
 import { RecordDisplayProps } from '@/lib/props';
 import { formatTime } from '@/lib/utils';
 
 const ITEMS_PER_PAGE = 5;
 
-export default function RecordDisplay({ times }: RecordDisplayProps) {
+export default function RecordDisplay({ times, deleteTime }: RecordDisplayProps) {
   const [currentPage, setCurrentPage] = useState(1);
   const totalPages = Math.ceil(times.length / ITEMS_PER_PAGE);
   const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
@@ -62,6 +62,12 @@ export default function RecordDisplay({ times }: RecordDisplayProps) {
                 <span className="text-gray-400 text-sm">
                   {formatDate(record.date)}
                 </span>
+                <button
+                  onClick={() => deleteTime(startIndex + index)}
+                  className="p-2 rounded-sm transition-all duration-200 text-gray-400 hover:text-red-700"
+                >
+                  <Trash2 className="w-4 h-4" />
+                </button>
               </div>
             ))}
             {totalPages > 1 && (

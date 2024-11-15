@@ -1,9 +1,6 @@
 import { Timer, Pause, Play } from 'lucide-react';
+import { TimerIconProps } from '@/lib/props';
 
-interface TimerIconProps {
-  isRunning: boolean;
-  time: number;
-}
 
 export function TimerIcon({ isRunning, time }: TimerIconProps) {
   return (

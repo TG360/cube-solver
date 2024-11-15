@@ -1,9 +1,5 @@
 import { useState, useCallback, useEffect } from 'react';
-
-interface TimeRecord {
-  time: number;
-  date: string;
-}
+import { TimeRecord } from '@/lib/props';
 
 const STORAGE_KEY = 'timer-records';
 const MAX_RECORDS = 25; // Increased to store more records
@@ -45,5 +41,14 @@ export function useStoredTimes() {
     });
   }, []);
 
-  return { times, addTime };
+  const deleteTime = useCallback((index: number) => {
+    setTimes((prevTimes) => {
+      const updatedTimes = [...prevTimes];
+      updatedTimes.splice(index, 1);
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(updatedTimes));
+      return updatedTimes;
+    });
+  }, []);
+
+  return { times, addTime, deleteTime };
 }
