@@ -6,9 +6,15 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export function formatTime(timeInMs: number): string {
-  const minutes = Math.floor(timeInMs / 60000)
   const seconds = Math.floor((timeInMs % 60000) / 1000)
   const milliseconds = Math.floor((timeInMs % 1000) / 10)
 
-  return `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}.${milliseconds.toString().padStart(2, '0')}`
+  return `${seconds.toString().padStart(2, '0')}.${milliseconds.toString().padStart(2, '0')}s`
 }
+
+export function formatDate(dateStr: string) : string {
+  return new Date(dateStr).toLocaleDateString(undefined, {
+    month: 'short',
+    day: 'numeric',
+  });
+};

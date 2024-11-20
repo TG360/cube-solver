@@ -32,3 +32,8 @@ export interface TimerIconProps {
 export interface TimerDisplayProps {
     time: number;
 }
+
+export interface StatsDisplayProps {
+    times: TimeRecord[];
+    meanTime: () => number;
+}

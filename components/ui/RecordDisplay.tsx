@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Trophy, Clock, ChevronLeft, ChevronRight, Trash2 } from 'lucide-react';
 import { RecordDisplayProps } from '@/lib/props';
-import { formatTime } from '@/lib/utils';
+import { formatTime, formatDate } from '@/lib/utils';
 
 const ITEMS_PER_PAGE = 5;
 
@@ -10,13 +10,6 @@ export default function RecordDisplay({ times, deleteTime }: RecordDisplayProps)
   const totalPages = Math.ceil(times.length / ITEMS_PER_PAGE);
   const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
   const visibleTimes = times.slice(startIndex, startIndex + ITEMS_PER_PAGE);
-
-  const formatDate = (dateStr: string) => {
-    return new Date(dateStr).toLocaleDateString(undefined, {
-      month: 'short',
-      day: 'numeric',
-    });
-  };
 
 
   const handlePrevPage = () => {
@@ -28,7 +21,7 @@ export default function RecordDisplay({ times, deleteTime }: RecordDisplayProps)
   };
 
   return (
-    <div className="mt-8 w-full max-w-sm">
+    <div className="mt-8 w-full max-w-md bg-gray-800 rounded-lg p-6">
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center gap-2">
           <Trophy className="w-5 h-5 text-yellow-400" />
