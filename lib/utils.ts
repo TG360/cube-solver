@@ -18,3 +18,26 @@ export function formatDate(dateStr: string) : string {
     day: 'numeric',
   });
 };
+
+export const statsType = [
+  {
+    value: "mean",
+    label: "Mean",
+  },
+  {
+    value: "sveltekit",
+    label: "SvelteKit",
+  },
+  {
+    value: "nuxt.js",
+    label: "Nuxt.js",
+  },
+  {
+    value: "remix",
+    label: "Remix",
+  },
+  {
+    value: "astro",
+    label: "Astro",
+  },
+]

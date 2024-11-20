@@ -35,5 +35,4 @@ export interface TimerDisplayProps {
 
 export interface StatsDisplayProps {
     times: TimeRecord[];
-    meanTime: () => number;
 }
