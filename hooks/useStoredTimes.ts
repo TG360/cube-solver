@@ -50,5 +50,10 @@ export function useStoredTimes() {
     });
   }, []);
 
-  return { times, addTime, deleteTime };
+  const resetTimes = useCallback(() => {
+    setTimes([]);
+    localStorage.removeItem(STORAGE_KEY);
+  }, []);
+
+  return { times, addTime, deleteTime, resetTimes };
 }

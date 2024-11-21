@@ -2,10 +2,11 @@ import { useState } from 'react';
 import { Trophy, Clock, ChevronLeft, ChevronRight, Trash2 } from 'lucide-react';
 import { RecordDisplayProps } from '@/lib/props';
 import { formatTime, formatDate } from '@/lib/utils';
+import ResetTimes from './ResetTimes';
 
 const ITEMS_PER_PAGE = 5;
 
-export default function RecordDisplay({ times, deleteTime }: RecordDisplayProps) {
+export default function RecordDisplay({ times, deleteTime, resetTimes }: RecordDisplayProps) {
   const [currentPage, setCurrentPage] = useState(1);
   const totalPages = Math.ceil(times.length / ITEMS_PER_PAGE);
   const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
@@ -26,6 +27,7 @@ export default function RecordDisplay({ times, deleteTime }: RecordDisplayProps)
         <div className="flex items-center gap-2">
           <Trophy className="w-5 h-5 text-yellow-400" />
           <h2 className="text-white text-lg font-semibold">Best Times</h2>
+          <ResetTimes resetTimes={resetTimes} />
         </div>
         {times.length > 0 && (
           <div className="text-sm text-gray-400">

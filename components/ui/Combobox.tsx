@@ -30,7 +30,7 @@ export default function Combobox({ types, handleType} : {types: {label: string, 
           variant="outline"
           role="combobox"
           aria-expanded={open}
-          className="w-[200px] justify-between"
+          className="w-[100px] justify-between"
         >
           {value
             ? types.find((type) => type.value === value)?.label
@@ -38,7 +38,7 @@ export default function Combobox({ types, handleType} : {types: {label: string, 
           <ChevronsUpDown className="opacity-50" />
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="w-[200px] p-0">
+      <PopoverContent className="w-[100px] p-0">
         <Command>
           <CommandInput placeholder="Search Stats..." />
           <CommandList>

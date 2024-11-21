@@ -14,7 +14,7 @@ export default function StatsDisplay({times}: StatsDisplayProps) {
     return (
         <div className="relative mt-8 w-full max-w-md bg-gray-800 rounded-lg p-6">
             {/* Add a drop down button to cycle between statistical components*/}
-            <div className="absolute top-0 left-0">
+            <div className="absolute top-2 left-2">
                 <Combobox types={statsType} handleType={handleTypeChange}/>
             </div>
             {type === 'mean' ? <MeanTime times={times} /> : <div>Other Stats</div>}

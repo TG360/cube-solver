@@ -12,6 +12,7 @@ export interface TimeRecord {
 export interface RecordDisplayProps {
     times: TimeRecord[];
     deleteTime: (index: number) => void;
+    resetTimes: () => void;
 }
 
 // Properties for a timer component that allows adding new time records.
